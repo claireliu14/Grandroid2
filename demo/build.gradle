@@ -1,20 +1,24 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.3"
+
+    flavorDimensions "default"
     productFlavors{
-        dev{
+        dev {
             buildConfigField("String","API_URL",'"http://api.caiyunapp.com/v2/KtK4V+sX75AisJEd/"')
+            dimension 'default'
         }
-        prod{
+        prod {
             buildConfigField("String","API_URL",'"http://api.caiyunapp.com/v2/KtK4V+sX75AisJEd/"')
+            dimension 'default'
         }
     }
     defaultConfig {
         applicationId "com.grasea.grandroid.demo"
         minSdkVersion 18
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -25,19 +29,20 @@ android {
         }
     }
 }
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'android-apt'
 
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.jakewharton:butterknife:8.0.1'
-    apt 'com.jakewharton:butterknife-compiler:8.0.1'
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.2.0'
-    compile project(':grandroid-ble')
-    compile project(path: ':grandroid-database')
-    compile project(':grandroid-mvp-framework')
-
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:26.0.2'
+    implementation 'com.android.support:design:26.0.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation project(path: ':grandroid-database')
+    implementation project(path: ':grandroid-ble')
+    api project(path: ':grandroid-mvp-framework')
+    implementation 'com.jakewharton:butterknife:8.0.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.0.1'
 }
