@@ -1,4 +1,6 @@
 # Grandroid2
+[![](https://jitpack.io/v/claireliu14/Grandroid2.svg)](https://jitpack.io/#claireliu14/Grandroid2)
+
 
 Grandroid2是一個開源的Android Library. 基於 [Grandroid](https://github.com/Grasea/Grandroid) 重新整合，更合理的拆分成多個Dependency，新版將更輕量化.
 
